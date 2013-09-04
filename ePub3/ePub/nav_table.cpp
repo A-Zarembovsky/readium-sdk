@@ -118,7 +118,7 @@ NavigationElement*  NavigationTable::BuildNavigationPoint(xmlNodePtr liNode)
         if ( cName == "a" )
         {
             point->SetTitle(reinterpret_cast<const char*>(xmlNodeGetContent(liChild)));
-            point->SetContent(_getProp(liChild, "href"));
+            point->SetSourceHref(_getProp(liChild, "href"));
         }
         else if( cName == "span" )
         {

@@ -47,7 +47,11 @@ public:
     virtual const string&   Title()                     const   = 0;
     virtual void            SetTitle(const string& str)         = 0;
     virtual void            SetTitle(string&& str)              = 0;
-    
+
+    virtual const string&   SourceHref()                const   = 0;
+    virtual void            SetSourceHref(const string& str)    = 0;
+    virtual void            SetSourceHref(string&& str)         = 0;
+
     const NavigationList&   Children()                  const   { return _children; }
     
     void                    AppendChild(NavigationElement* e)   { _children.push_back(e); }

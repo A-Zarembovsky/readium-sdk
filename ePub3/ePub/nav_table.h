@@ -53,10 +53,10 @@ public:
     virtual void            SetTitle(const string& str)         { _title = str; }
     virtual void            SetTitle(string&& str)              { _title = str; }
 
-    const string&           SourceHref()                      const   { return _sourceHref; }
-    void                    SetSourceHref(const string& str)    { _sourceHref = str; }
-    void                    SetSourceHref(string&& str)         { _sourceHref = str; }
-                                                                                                                           
+    virtual const string&   SourceHref()                const   { return _sourceHref; }
+    virtual void            SetSourceHref(const string& str)    { _sourceHref = str; }
+    virtual void            SetSourceHref(string&& str)         { _sourceHref = str; }
+
     
 protected:
     string      _type;

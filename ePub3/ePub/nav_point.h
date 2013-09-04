@@ -36,22 +36,22 @@ class NavigationPoint : public NavigationElement
 {
 public:
                             NavigationPoint() {};
-                            NavigationPoint(const std::string& ident, const std::string& label, const std::string& content) : NavigationElement(), _label(label), _content(content) {}
+                            NavigationPoint(const std::string& ident, const std::string& label, const std::string& content) : NavigationElement(), _label(label), _sourceHref(content) {}
                             NavigationPoint(const NavigationPoint&)     = delete;
-                            NavigationPoint(NavigationPoint&& o) : NavigationElement(o), _label(std::move(o._label)), _content(std::move(o._content)) {}
+                            NavigationPoint(NavigationPoint&& o) : NavigationElement(o), _label(std::move(o._label)), _sourceHref(std::move(o._sourceHref)) {}
     virtual                 ~NavigationPoint() {}
     
     virtual const string&   Title()                     const   { return _label; }
     virtual void            SetTitle(const string& str)         { _label = str; }
     virtual void            SetTitle(string&& str)              { _label = str; }
     
-    const string&           Content()                   const   { return _content; }
-    void                    SetContent(const string& str)       { _content = str; }
-    void                    SetContent(string&& str)            { _content = str; }
+    virtual const string&   SourceHref()                const   { return _sourceHref; }
+    virtual void            SetSourceHref(const string& str)    { _sourceHref = str; }
+    virtual void            SetSourceHref(string&& str)         { _sourceHref = str; }
     
 protected:
     string _label;
-    string _content;
+    string _sourceHref;
 };
 
 EPUB3_END_NAMESPACE
